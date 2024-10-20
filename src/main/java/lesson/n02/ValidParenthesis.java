@@ -1,42 +1,52 @@
-package lesson02;
+package lesson.n02;
 
 import java.util.Stack;
 
 public class ValidParenthesis {
-    public static boolean isValid(String s) {
-        if (s == null)
-            throw new RuntimeException("Invalid input");
+    public static final int MAX_LENGTH = 100;
 
-        if (s.isEmpty() || s.length() > 10000)
+    public static boolean isValid(String s) {
+        if (s == null) {
             throw new RuntimeException("Invalid input");
+        }
+
+        if (s.isEmpty() || s.length() > MAX_LENGTH) {
+            throw new RuntimeException("Invalid input");
+        }
 
         Stack<Character> parentheses = new Stack<>();
         char previous;
-        for (int i=0; i<s.length(); i++) {
-            switch(s.charAt(i)) {
+        for (int i = 0; i < s.length(); i++) {
+            switch (s.charAt(i)) {
                 case '(', '[', '{':
                     parentheses.push(s.charAt(i));
                     break;
                 case ')':
-                    if (parentheses.isEmpty())
+                    if (parentheses.isEmpty()) {
                         return false;
+                    }
                     previous = parentheses.pop();
-                    if (previous != '(')
+                    if (previous != '(') {
                         return false;
+                    }
                     break;
                 case ']':
-                    if (parentheses.isEmpty())
+                    if (parentheses.isEmpty()) {
                         return false;
+                    }
                     previous = parentheses.pop();
-                    if (previous != '[')
+                    if (previous != '[') {
                         return false;
+                    }
                     break;
                 case '}':
-                    if (parentheses.isEmpty())
+                    if (parentheses.isEmpty()) {
                         return false;
+                    }
                     previous = parentheses.pop();
-                    if (previous != '{')
+                    if (previous != '{') {
                         return false;
+                    }
                     break;
                 default:
                     throw new RuntimeException("Invalid input");

@@ -1,4 +1,4 @@
-package lesson03;
+package lesson.n03;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,10 +17,10 @@ public class Main {
         grades.stream()
                 .limit(3)
                 .forEach(grade -> System.out.println(
-                        "Name: " + grade.studentName() +
-                                ", school: " + grade.school() +
-                                ", subject: " + grade.subject() +
-                                ", score:" + grade.score()
+                        "Name: " + grade.studentName()
+                                + ", school: " + grade.school()
+                                + ", subject: " + grade.subject()
+                                + ", score:" + grade.score()
                 ));
     }
 
