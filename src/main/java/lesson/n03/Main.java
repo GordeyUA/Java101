@@ -3,7 +3,10 @@ package lesson.n03;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Main {
+public final class Main {
+
+    private Main() { }
+
     public static void main(String[] args) {
         List<Student> students = getStudents();
 

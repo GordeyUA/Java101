@@ -2,17 +2,20 @@ package lesson.n02;
 
 import java.util.Arrays;
 
-public class MoveZeroes {
-    public static void moveZeroes(int[] nums) {
+public final class MoveZeroes {
+
+    private MoveZeroes() { }
+
+    public static void moveZeroes(int[] numbers) {
         int counter = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] != 0) {
-                nums[counter] = nums[i];
+        for (int i = 0; i < numbers.length; i++) {
+            if (numbers[i] != 0) {
+                numbers[counter] = numbers[i];
                 counter++;
             }
         }
-        while (counter < nums.length) {
-            nums[counter] = 0;
+        while (counter < numbers.length) {
+            numbers[counter] = 0;
             counter++;
         }
     }
