@@ -2,8 +2,11 @@ package lesson.n02;
 
 import java.util.Stack;
 
-public class ValidParenthesis {
+public final class ValidParenthesis {
+
     public static final int MAX_LENGTH = 100;
+
+    private ValidParenthesis() { }
 
     public static boolean isValid(String s) {
         if (s == null) {
