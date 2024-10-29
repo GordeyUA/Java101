@@ -14,8 +14,16 @@ public class UserRepositoryImpl implements UserRepository {
 
   @Override
   public User create(User user) {
+    Transaction transaction = null;
     try (Session session = sessionFactory.openSession()) {
-      session.save(user);
+      transaction = session.getTransaction();
+      transaction.begin();
+      session.persist(user);
+      transaction.commit();
+    } catch (Exception e) {
+      if (transaction != null) {
+        transaction.rollback();
+      }
     }
     return user;
   }
@@ -26,7 +34,7 @@ public class UserRepositoryImpl implements UserRepository {
     try (Session session = sessionFactory.openSession()) {
       transaction = session.getTransaction();
       transaction.begin();
-      session.update(user);
+      session.merge(user);
       transaction.commit();
     } catch (Exception e) {
       if (transaction != null) {
